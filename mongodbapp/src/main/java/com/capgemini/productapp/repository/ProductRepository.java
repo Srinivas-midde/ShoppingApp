@@ -23,7 +23,7 @@ public interface ProductRepository extends MongoRepository<Product, Integer>{
 	@Query("{'productPrice' : { '$lt' : 25000}, '$and' :[{'productPrice' : { '$gte' : 900}}]}")
 	public List<Product> findByPriceInterval();
 	
-	@Query("{'productPrice' : { '$lt' : ?0}, '$and' :[{'productPrice' : { '$gt' : ?0}}]}")
+	@Query("{'productPrice' : { '$lt' : ?0,  '$gt' : ?0}}")
 	public List<Product> findProductByPriceInterval(double upperbound,double lowerbound);
 	
 }
